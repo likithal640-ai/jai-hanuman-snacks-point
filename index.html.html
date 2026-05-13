@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jai Hanuman Snacks Point – Thindlu, APC Layout, Bangalore</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #f0c040;
+    --gold-light: #f7d96a;
+    --gold-dark: #c99a20;
+    --red: #e02020;
+    --red-light: #ff4444;
+    --red-dark: #a81010;
+    --ice: #a8d8ea;
+    --ice-light: #d4eef7;
+    --ice-dark: #5fb8d8;
+    --dark: #040c12;
+    --dark2: #071520;
+    --dark3: #0a1e2e;
+    --dark4: #0d2438;
+    --white: #f0f8ff;
+    --muted: #6fa8c0;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--dark);color:var(--white);font-family:'Lato',sans-serif;font-weight:300;overflow-x:hidden}
+  ::-webkit-scrollbar{width:4px}
+  ::-webkit-scrollbar-track{background:var(--dark)}
+  ::-webkit-scrollbar-thumb{background:linear-gradient(to bottom,var(--red),var(--gold));border-radius:2px}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;width:100%;z-index:999;padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(4,12,18,0.96);border-bottom:1px solid rgba(168,216,234,0.15);backdrop-filter:blur(10px);transition:padding .3s}
+  .nav-logo{font-family:'Cinzel',serif;font-size:.95rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;text-decoration:none}
+  .nav-links{display:flex;gap:2rem;list-style:none}
+  .nav-links a{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ice-light);text-decoration:none;opacity:.7;transition:opacity .3s,color .3s}
+  .nav-links a:hover{opacity:1;color:var(--ice)}
+
+  /* HERO */
+  #hero{position:relative;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 35%,rgba(168,216,234,.1) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 10% 75%,rgba(224,32,32,.08) 0%,transparent 60%),radial-gradient(ellipse 35% 40% at 88% 20%,rgba(240,192,64,.07) 0%,transparent 60%),linear-gradient(175deg,#040c12 0%,#071c2e 45%,#04101a 100%)}
+  .orb{position:absolute;border-radius:50%;filter:blur(70px);animation:float 9s ease-in-out infinite;pointer-events:none}
+  .orb1{width:400px;height:400px;background:rgba(168,216,234,.07);top:0%;left:-5%;animation-delay:0s}
+  .orb2{width:260px;height:260px;background:rgba(224,32,32,.07);bottom:8%;right:4%;animation-delay:-4s}
+  .orb3{width:200px;height:200px;background:rgba(240,192,64,.06);top:55%;left:42%;animation-delay:-7s}
+
+  .hero-content{position:relative;z-index:2;padding:0 1rem}
+
+  .hero-orn{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;justify-content:center;opacity:0;animation:fadeUp 1s .3s ease forwards}
+  .orn-line{width:70px;height:1px}
+  .orn-line.l{background:linear-gradient(to right,transparent,var(--red))}
+  .orn-line.r{background:linear-gradient(to left,transparent,var(--ice-dark))}
+  .orn-diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 8px var(--gold)}
+  .hero-orn span{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ice);opacity:.85;white-space:nowrap}
+
+  .hero-logo-wrap{width:120px;height:120px;border-radius:50%;margin:0 auto 2rem;display:flex;align-items:center;justify-content:center;position:relative;opacity:0;animation:fadeUp 1s .5s ease forwards;border:2px solid rgba(168,216,234,.35);box-shadow:0 0 30px rgba(168,216,234,.15),0 0 60px rgba(168,216,234,.07)}
+  .hero-logo-wrap::before{content:'';position:absolute;inset:6px;border-radius:50%;border:1px solid rgba(240,192,64,.25)}
+  .hero-logo-emoji{font-size:2.8rem}
+
+  h1{font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:700;letter-spacing:.1em;line-height:1.15;color:var(--white);text-transform:uppercase;opacity:0;animation:fadeUp 1s .7s ease forwards}
+  h1 .gold-sub{color:var(--gold);display:block;font-size:.72em;font-weight:400;letter-spacing:.2em}
+  .hero-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2vw,1.4rem);color:var(--muted);letter-spacing:.1em;margin-top:.8rem;opacity:0;animation:fadeUp 1s .9s ease forwards}
+
+  .tri-divider{display:flex;align-items:center;gap:.8rem;margin:2rem auto;width:260px;opacity:0;animation:fadeUp 1s 1.1s ease forwards}
+  .tri-line{flex:1;height:1px}
+  .tri-line.l{background:linear-gradient(to right,transparent,var(--red))}
+  .tri-line.r{background:linear-gradient(to left,transparent,var(--ice-dark))}
+  .tri-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;box-shadow:0 0 8px var(--gold)}
+
+  .hero-cta{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 1s 1.3s ease forwards}
+
+  .btn-red{padding:.85rem 2.5rem;background:linear-gradient(135deg,var(--red),var(--red-light));color:#fff;font-family:'Cinzel',serif;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:transform .3s,box-shadow .3s;display:inline-block}
+  .btn-red:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(224,32,32,.4)}
+  .btn-ice{padding:.85rem 2.5rem;background:transparent;color:var(--ice);font-family:'Cinzel',serif;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ice-dark);cursor:pointer;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:background .3s,transform .3s;display:inline-block}
+  .btn-ice:hover{background:rgba(168,216,234,.1);transform:translateY(-2px)}
+  .btn-gold{padding:.85rem 2.5rem;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);font-family:'Cinzel',serif;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:transform .3s,box-shadow .3s;display:inline-block}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(240,192,64,.35)}
+  .btn-outline{padding:.85rem 2.5rem;background:transparent;color:var(--gold);font-family:'Cinzel',serif;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid var(--gold);cursor:pointer;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:background .3s,transform .3s;display:inline-block}
+  .btn-outline:hover{background:rgba(240,192,64,.1);transform:translateY(-2px)}
+
+  .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeUp 1s 1.8s ease forwards}
+  .scroll-hint p{font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+  .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--ice),transparent);animation:scrollPulse 2s ease-in-out infinite}
+
+  /* SECTIONS */
+  section{padding:7rem 2rem}
+  .sec-hd{text-align:center;margin-bottom:4rem}
+  .sec-tag{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ice);margin-bottom:.7rem;display:block}
+  .sec-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:600;letter-spacing:.06em;color:var(--white);text-transform:uppercase}
+  .sec-title em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:1.15em;font-weight:300}
+  .sec-rule{display:flex;align-items:center;gap:.8rem;justify-content:center;margin-top:1.2rem}
+  .sec-rule-line{width:50px;height:1px}
+  .sec-rule-line.l{background:linear-gradient(to right,transparent,var(--red))}
+  .sec-rule-line.r{background:linear-gradient(to left,transparent,var(--ice-dark))}
+  .sec-rule-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 6px var(--gold)}
+
+  /* ABOUT */
+  #about{background:linear-gradient(135deg,var(--dark2) 0%,var(--dark3) 100%);position:relative;overflow:hidden}
+  #about::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;border:1px solid rgba(168,216,234,.07)}
+  #about::after{content:'';position:absolute;bottom:-80px;left:-80px;width:300px;height:300px;border-radius:50%;border:1px solid rgba(224,32,32,.06)}
+  .about-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+  .about-text p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1.9;color:rgba(240,248,255,.8);margin-bottom:1.5rem}
+  .about-text p:first-child::first-letter{font-size:3rem;font-family:'Cinzel',serif;color:var(--gold);float:left;line-height:.8;margin-right:.15em;margin-top:.1em}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .stat{border:1px solid rgba(168,216,234,.18);padding:1.8rem 1.2rem;text-align:center;position:relative;background:rgba(168,216,234,.03);transition:border-color .3s,background .3s,box-shadow .3s}
+  .stat:hover{border-color:rgba(168,216,234,.4);background:rgba(168,216,234,.07);box-shadow:0 0 20px rgba(168,216,234,.08)}
+  .stat::before,.stat::after{content:'';position:absolute;width:10px;height:10px;border-color:var(--ice);border-style:solid}
+  .stat::before{top:-1px;left:-1px;border-width:1px 0 0 1px}
+  .stat::after{bottom:-1px;right:-1px;border-width:0 1px 1px 0}
+  .stat-num{font-family:'Cinzel',serif;font-size:2.2rem;color:var(--gold);display:block}
+  .stat-lbl{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+
+  /* VEG BADGE */
+  .veg-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .9rem;border:1px solid rgba(76,175,80,.5);border-radius:3px;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:#4caf50;margin-bottom:1rem}
+  .veg-dot{width:10px;height:10px;background:#4caf50;border-radius:50%}
+
+  /* MENU */
+  #menu{background:var(--dark)}
+  .menu-tabs{display:flex;flex-wrap:wrap;max-width:800px;margin:0 auto 3.5rem;border:1px solid rgba(168,216,234,.2)}
+  .tab-btn{padding:.8rem 1.4rem;background:transparent;border:none;border-right:1px solid rgba(168,216,234,.15);cursor:pointer;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:all .3s;flex:1}
+  .tab-btn:last-child{border-right:none}
+  .tab-btn.active{background:rgba(168,216,234,.1);color:var(--ice);border-bottom:2px solid var(--red)}
+  .tab-btn:hover:not(.active){color:var(--ice-light);background:rgba(168,216,234,.05)}
+  .menu-cat{display:none;max-width:1100px;margin:0 auto}
+  .menu-cat.active{display:block}
+
+  .msec-title{font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:.18em;color:var(--ice);text-transform:uppercase;margin:2.5rem 0 1rem;display:flex;align-items:center;gap:.8rem;padding-left:.6rem;border-left:3px solid var(--red)}
+  .msec-title::after{content:'';flex:1;height:1px;background:rgba(168,216,234,.13)}
+  .msec-note{font-size:.68rem;font-weight:300;color:var(--muted);font-family:'Lato',sans-serif;letter-spacing:.08em;font-style:italic;margin-left:.5rem}
+
+  .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:1.5px;background:rgba(168,216,234,.06);border:1px solid rgba(168,216,234,.12);margin-bottom:.3rem}
+  .mi{background:var(--dark);padding:1.3rem 1.5rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;transition:background .3s;position:relative;overflow:hidden}
+  .mi::before{content:'';position:absolute;left:0;top:0;width:2px;height:100%;background:var(--red);transform:scaleY(0);transform-origin:bottom;transition:transform .3s}
+  .mi:hover{background:var(--dark2)}
+  .mi:hover::before{transform:scaleY(1)}
+  .mi-name{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-weight:600;color:var(--white);letter-spacing:.02em}
+  .mi-price{font-family:'Cinzel',serif;font-size:.92rem;color:var(--gold);white-space:nowrap;padding-top:.1rem}
+  .mi-price small{font-size:.58rem;opacity:.7}
+  .badge{font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;padding:.16rem .42rem;border:1px solid var(--gold);color:var(--gold);margin-top:.3rem;display:inline-block;border-radius:2px}
+
+  /* SPECIALS BANNER */
+  .special-bar{background:linear-gradient(135deg,rgba(224,32,32,.1),rgba(168,216,234,.07));border:1px solid rgba(168,216,234,.18);border-left:3px solid var(--red);padding:2.2rem 2.5rem;max-width:1100px;margin:2.5rem auto 0;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+  .special-bar p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;color:var(--ice-light);margin-bottom:.3rem}
+  .special-bar span{font-size:.68rem;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+
+  /* ADDONS */
+  #addons{background:linear-gradient(160deg,var(--dark3) 0%,var(--dark2) 50%,var(--dark3) 100%);padding:6rem 2rem;position:relative;overflow:hidden}
+  #addons::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--red),var(--ice-dark),var(--gold))}
+  .addon-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+  .addon-card{border:1px solid rgba(168,216,234,.2);background:rgba(168,216,234,.03);position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+  .addon-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(168,216,234,.1)}
+  .addon-card-top{height:3px;background:linear-gradient(to right,var(--red),var(--ice-dark),var(--gold))}
+  .addon-body{padding:2.5rem 2rem}
+  .addon-icon{font-size:3rem;margin-bottom:1rem;display:block}
+  .addon-title{font-family:'Cinzel',serif;font-size:1.25rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem}
+  .addon-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--muted);margin-bottom:1.5rem}
+  .pill-wrap{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
+  .pill{padding:.28rem .85rem;border:1px solid rgba(168,216,234,.3);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ice-light);border-radius:2px}
+  .pill.more{background:rgba(240,192,64,.1);border-color:var(--gold);color:var(--gold)}
+  .addon-desc{font-size:.74rem;color:var(--muted);line-height:1.75;border-top:1px solid rgba(168,216,234,.1);padding-top:1.1rem}
+  .addon-desc strong{color:var(--ice-light)}
+  .addon-avail{margin-top:1.3rem;display:inline-flex;align-items:center;gap:.5rem;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ice)}
+  .addon-avail-dot{width:6px;height:6px;background:var(--red);transform:rotate(45deg)}
+  .addon-note{max-width:1000px;margin:2rem auto 0;border:1px solid rgba(168,216,234,.15);background:rgba(168,216,234,.03);padding:1.4rem 2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  .addon-note p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(240,248,255,.75);line-height:1.6;flex:1}
+  .addon-note p span{color:var(--ice)}
+
+  /* INSTAGRAM */
+  #instagram{background:linear-gradient(160deg,var(--dark3) 0%,var(--dark) 100%);text-align:center}
+  .insta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;max-width:660px;margin:0 auto 2.5rem}
+  .insta-cell{aspect-ratio:1;background:var(--dark3);border:1px solid rgba(168,216,234,.1);display:flex;align-items:center;justify-content:center;font-size:2rem;cursor:pointer;transition:transform .3s;position:relative;overflow:hidden}
+  .insta-cell:hover{transform:scale(.97)}
+  .insta-cell::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(224,32,32,.12),rgba(168,216,234,.08));opacity:0;transition:opacity .3s}
+  .insta-cell:hover::after{opacity:1}
+  .insta-handle{font-family:'Cinzel',serif;font-size:1.2rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.5rem;display:block}
+  .insta-sub{font-size:.78rem;color:var(--muted);letter-spacing:.1em}
+
+  /* CONTACT */
+  #contact{background:var(--dark3);position:relative;overflow:hidden}
+  #contact::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--red),var(--ice-dark),var(--gold))}
+  .contact-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(168,216,234,.08);border:1px solid rgba(168,216,234,.15)}
+  .contact-card{background:var(--dark3);padding:2.8rem 1.5rem;text-align:center;transition:background .3s;text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden}
+  .contact-card:hover{background:var(--dark4)}
+  .contact-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--red),transparent);transform:scaleX(0);transition:transform .4s}
+  .contact-card:hover::after{transform:scaleX(1)}
+  .c-icon{font-size:1.6rem;margin-bottom:1rem;display:block}
+  .c-label{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ice);margin-bottom:.5rem;display:block}
+  .c-val{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--white);line-height:1.6}
+  .map-box{max-width:1000px;margin:2rem auto 0;border:1px solid rgba(168,216,234,.18)}
+  .map-inner{background:var(--dark2);padding:3.5rem 2rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.8rem}
+  .map-addr{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--white)}
+  .map-addr span{color:var(--ice)}
+  .map-note{font-size:.62rem;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;margin-top:.3rem}
+  .hours-box{max-width:600px;margin:2rem auto 0;border:1px solid rgba(168,216,234,.15)}
+  .h-row{display:flex;justify-content:space-between;align-items:center;padding:.85rem 2rem;border-bottom:1px solid rgba(168,216,234,.07);transition:background .2s}
+  .h-row:last-child{border-bottom:none}
+  .h-row:hover{background:rgba(168,216,234,.04)}
+  .h-row.today{background:rgba(224,32,32,.06)}
+  .h-day{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .h-time{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--white)}
+  .h-row.today .h-day{color:var(--red-light)}
+  .h-row.today .h-time{color:var(--gold)}
+
+  /* FOOTER */
+  footer{background:var(--dark);padding:3rem 2rem;text-align:center;border-top:2px solid transparent;border-image:linear-gradient(to right,var(--red),var(--ice-dark),var(--gold)) 1}
+  .ft-logo{font-family:'Cinzel',serif;font-size:1.4rem;color:var(--gold);letter-spacing:.18em;margin-bottom:.4rem}
+  .ft-tag{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--muted);font-size:.95rem;margin-bottom:1.4rem}
+  .ft-rule{width:80px;height:2px;background:linear-gradient(to right,var(--red),var(--gold));margin:1.4rem auto}
+  .ft-links{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.4rem}
+  .ft-links a{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s}
+  .ft-links a:hover{color:var(--ice)}
+  .ft-copy{font-size:.62rem;letter-spacing:.15em;color:rgba(111,168,192,.4);text-transform:uppercase}
+
+  /* ANIMATIONS */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(3deg)}}
+  @keyframes scrollPulse{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:.3;transform:scaleY(.6)}}
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  @media(max-width:768px){
+    nav{padding:1rem 1.5rem}
+    .nav-links{display:none}
+    .about-grid{grid-template-columns:1fr;gap:2.5rem}
+    .contact-grid{grid-template-columns:1fr}
+    section{padding:5rem 1.5rem}
+    .tab-btn{padding:.65rem .8rem;font-size:.55rem}
+    .addon-grid{grid-template-columns:1fr}
+    .insta-grid{max-width:100%}
+    .special-bar{padding:1.6rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">JH Snacks Point</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#addons">Specials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-orn">
+      <div class="orn-line l"></div><div class="orn-diamond"></div>
+      <span>Pure Veg · Thindlu APC Layout · Bangalore</span>
+      <div class="orn-diamond"></div><div class="orn-line r"></div>
+    </div>
+    <div class="hero-logo-wrap"><span class="hero-logo-emoji">🍕</span></div>
+    <h1>Jai Hanuman<span class="gold-sub">Snacks Point</span></h1>
+    <p class="hero-tagline">Where every bite is a blessing</p>
+    <div class="tri-divider">
+      <div class="tri-line l"></div><div class="tri-dot"></div><div class="tri-line r"></div>
+    </div>
+    <div class="hero-cta">
+      <a href="#menu" class="btn-red">View Menu</a>
+      <a href="#contact" class="btn-ice">Find Us</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <p>Scroll</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-hd reveal">
+    <span class="sec-tag">Our Story</span>
+    <h2 class="sec-title">A Legacy of <em>Authentic Flavours</em></h2>
+    <div class="sec-rule">
+      <div class="sec-rule-line l"></div><div class="sec-rule-diamond"></div><div class="sec-rule-line r"></div>
+    </div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="veg-badge"><div class="veg-dot"></div> 100% Pure Vegetarian</div>
+      <p>Nestled in the heart of Thindlu APC Layout, Jai Hanuman Snacks Point is your go-to destination for fresh, bold, and delicious pure-veg fast food crafted with devotion.</p>
+      <p>From crispy pizzas and sizzling burgers to refreshing milkshakes and mojitos — every item is made fresh daily using only refined oil, served with love and flavour.</p>
+      <a href="#menu" class="btn-red" style="margin-top:.8rem">Explore Menu</a>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><span class="stat-num">95+</span><span class="stat-lbl">Menu Items</span></div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-lbl">Pure Veg</span></div>
+      <div class="stat"><span class="stat-num">4.8★</span><span class="stat-lbl">Customer Rating</span></div>
+      <div class="stat"><span class="stat-num">5+</span><span class="stat-lbl">Years of Service</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="sec-hd reveal">
+    <span class="sec-tag">Pure Veg · Only Refined Oil Used</span>
+    <h2 class="sec-title">Our <em>Menu</em></h2>
+    <div class="sec-rule">
+      <div class="sec-rule-line l"></div><div class="sec-rule-diamond"></div><div class="sec-rule-line r"></div>
+    </div>
+  </div>
+
+  <div class="menu-tabs reveal">
+    <button class="tab-btn active" onclick="showCat('pizza',this)">🍕 Pizza &amp; Mains</button>
+    <button class="tab-btn" onclick="showCat('rolls',this)">🌯 Rolls &amp; Fries</button>
+    <button class="tab-btn" onclick="showCat('pasta',this)">🍝 Pasta &amp; Maggi</button>
+    <button class="tab-btn" onclick="showCat('drinks',this)">🥤 Drinks</button>
+  </div>
+
+  <!-- PIZZA & MAINS -->
+  <div class="menu-cat active" id="cat-pizza">
+    <div class="msec-title">🍕 Pizza <span class="msec-note">Add-on Cheese ₹20/-</span></div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Classic Pizza</div></div><div class="mi-price"><small>₹</small>100</div></div>
+      <div class="mi"><div><div class="mi-name">American Corn Pizza</div></div><div class="mi-price"><small>₹</small>100</div></div>
+      <div class="mi"><div><div class="mi-name">Capsicum Pizza</div></div><div class="mi-price"><small>₹</small>100</div></div>
+      <div class="mi"><div><div class="mi-name">Onion Pizza</div></div><div class="mi-price"><small>₹</small>100</div></div>
+      <div class="mi"><div><div class="mi-name">Capsicum Onion Pizza</div></div><div class="mi-price"><small>₹</small>110</div></div>
+      <div class="mi"><div><div class="mi-name">Corn Onion / Capsicum Pizza</div></div><div class="mi-price"><small>₹</small>120</div></div>
+      <div class="mi"><div><div class="mi-name">Mushroom Onion / Capsicum Pizza</div></div><div class="mi-price"><small>₹</small>130</div></div>
+      <div class="mi"><div><div class="mi-name">Babycorn Onion / Capsicum Pizza</div></div><div class="mi-price"><small>₹</small>130</div></div>
+      <div class="mi"><div><div class="mi-name">Babycorn Pizza</div></div><div class="mi-price"><small>₹</small>130</div></div>
+      <div class="mi"><div><div class="mi-name">Mushroom Pizza</div></div><div class="mi-price"><small>₹</small>140</div></div>
+      <div class="mi"><div><div class="mi-name">Paneer Pizza</div></div><div class="mi-price"><small>₹</small>140</div></div>
+      <div class="mi"><div><div class="mi-name">Paneer Onion / Capsicum Pizza</div></div><div class="mi-price"><small>₹</small>150</div></div>
+      <div class="mi"><div><div class="mi-name">Paneer Mushroom Babycorn Pizza</div></div><div class="mi-price"><small>₹</small>150</div></div>
+      <div class="mi"><div><div class="mi-name">Veg Farm Pizza</div></div><div class="mi-price"><small>₹</small>150</div></div>
+      <div class="mi"><div><div class="mi-name">All in One Pizza <span class="badge">⭐ Bestseller</span></div></div><div class="mi-price"><small>₹</small>150</div></div>
+    </div>
+
+    <div class="msec-title">🥪 Sandwich <span class="msec-note">Add-on Cheese ₹20/-</span></div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Bread Butter Jam</div></div><div class="mi-price"><small>₹</small>40</div></div>
+      <div class="mi"><div><div class="mi-name">Chocolate Sandwich</div></div><div class="mi-price"><small>₹</small>50</div></div>
+      <div class="mi"><div><div class="mi-name">Veg Sandwich 2 Slice</div></div><div class="mi-price"><small>₹</small>50</div></div>
+      <div class="mi"><div><div class="mi-name">Lettuce Sandwich</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Mushroom Sandwich</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Cheese Sandwich</div></div><div class="mi-price"><small>₹</small>75</div></div>
+      <div class="mi"><div><div class="mi-name">Paneer Sandwich</div></div><div class="mi-price"><small>₹</small>80</div></div>
+      <div class="mi"><div><div class="mi-name">Veg Sandwich 4 Slice <span class="badge">⭐ Popular</span></div></div><div class="mi-price"><small>₹</small>100</div></div>
+    </div>
+
+    <div class="msec-title">🍔 Burger</div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Korean Garlic Bun</div></div><div class="mi-price"><small>₹</small>50</div></div>
+      <div class="mi"><div><div class="mi-name">Aloo Tikki Burger</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Veg Patty Burger</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Mushroom Burger</div></div><div class="mi-price"><small>₹</small>80</div></div>
+      <div class="mi"><div><div class="mi-name">Babycorn Burger</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Cheese Burger <span class="badge">⭐ Bestseller</span></div></div><div class="mi-price"><small>₹</small>80</div></div>
+      <div class="mi"><div><div class="mi-name">Paneer Burger</div></div><div class="mi-price"><small>₹</small>100</div></div>
+    </div>
+
+    <div class="msec-title">🥙 Veg Kabab</div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Aloo Kabab</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Dry Gobi</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Baby Corn Kabab</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Soya Kabab</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Raw Banana Kabab</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Mushroom Kabab</div></div><div class="mi-price"><small>₹</small>80</div></div>
+      <div class="mi"><div><div class="mi-name">Paneer Kabab <span class="badge">🏅 Premium</span></div></div><div class="mi-price"><small>₹</small>100</div></div>
+    </div>
+  </div>
+
+  <!-- ROLLS & FRIES -->
+  <div class="menu-cat" id="cat-rolls">
+    <div class="msec-title">🌯 Crispy Veg Rolls</div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Crispy Aloo Roll</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Crispy Dry Gobi Roll</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Crispy Baby Corn Roll</div></div><div class="mi-price"><small>₹</small>80</div></div>
+      <div class="mi"><div><div class="mi-name">Crispy Soya Roll</div></div><div class="mi-price"><small>₹</small>80</div></div>
+      <div class="mi"><div><div class="mi-name">Crispy Raw Banana Roll</div></div><div class="mi-price"><small>₹</small>80</div></div>
+      <div class="mi"><div><div class="mi-name">Crispy Mushroom Roll</div></div><div class="mi-price"><small>₹</small>80</div></div>
+      <div class="mi"><div><div class="mi-name">Crispy Paneer Roll <span class="badge">🏅 Premium</span></div></div><div class="mi-price"><small>₹</small>100</div></div>
+    </div>
+
+    <div class="msec-title">🍟 Fries &amp; Nuggets</div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">French Fries Salt</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Potato Cheese Balls</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Potato Bites</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Peri Peri French Fries 🔥</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Chilly Garlic Potato Pops (10 pcs)</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Smiles (6 pcs)</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Veg Nuggets (6 pcs)</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Veggie Fingers (6 pcs)</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Cheese Corn Triangles</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Cheese Pizza Fingers (6 pcs) <span class="badge">⭐ Popular</span></div></div><div class="mi-price"><small>₹</small>70</div></div>
+    </div>
+  </div>
+
+  <!-- PASTA & MAGGI -->
+  <div class="menu-cat" id="cat-pasta">
+    <div class="msec-title">🍝 Pasta</div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Red Sauce Pasta</div></div><div class="mi-price"><small>₹</small>80</div></div>
+      <div class="mi"><div><div class="mi-name">White Sauce Pasta</div></div><div class="mi-price"><small>₹</small>100</div></div>
+      <div class="mi"><div><div class="mi-name">Cheesy Pasta <span class="badge">⭐ Popular</span></div></div><div class="mi-price"><small>₹</small>130</div></div>
+      <div class="mi"><div><div class="mi-name">Pink Sauce Pasta</div></div><div class="mi-price"><small>₹</small>130</div></div>
+    </div>
+
+    <div class="msec-title">🍜 Maggi</div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Plain Maggi</div></div><div class="mi-price"><small>₹</small>50</div></div>
+      <div class="mi"><div><div class="mi-name">Cheese Maggi <span class="badge">⭐ Bestseller</span></div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Corn Maggi</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Mushroom Maggi</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Baby Corn Maggi</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Veggies Maggi</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Paneer Maggi <span class="badge">🏅 Premium</span></div></div><div class="mi-price"><small>₹</small>100</div></div>
+    </div>
+  </div>
+
+  <!-- DRINKS -->
+  <div class="menu-cat" id="cat-drinks">
+    <div class="msec-title">🥛 Milkshakes</div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Oreo Milkshake</div></div><div class="mi-price"><small>₹</small>50</div></div>
+      <div class="mi"><div><div class="mi-name">Rose Milkshake</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Badam Milkshake</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Kulfi Milkshake</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Vanilla Milkshake</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Chocolate Milkshake <span class="badge">⭐ Popular</span></div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Blueberry Milkshake</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Butterscotch Milkshake</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Black Currant Milkshake</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Strawberry Milkshake</div></div><div class="mi-price"><small>₹</small>70</div></div>
+      <div class="mi"><div><div class="mi-name">Mango Milkshake</div></div><div class="mi-price"><small>₹</small>70</div></div>
+    </div>
+
+    <div class="msec-title">🧃 Floats</div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Coke Float</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Strawberry Float</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Orange Float</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Lemon Float</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Litchi Float</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Blueberry Float</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Mango Float <span class="badge">⭐ Popular</span></div></div><div class="mi-price"><small>₹</small>60</div></div>
+    </div>
+
+    <div class="msec-title">🍹 Mojito</div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Lime Masala</div></div><div class="mi-price"><small>₹</small>50</div></div>
+      <div class="mi"><div><div class="mi-name">Lime Mint <span class="badge">⭐ Bestseller</span></div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Strawberry</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Orange</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Litchi</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Blueberry</div></div><div class="mi-price"><small>₹</small>60</div></div>
+      <div class="mi"><div><div class="mi-name">Fruit Beer</div></div><div class="mi-price"><small>₹</small>60</div></div>
+    </div>
+
+    <div class="msec-title">☕ Tea <span class="msec-note">Decoction only · No milk added</span></div>
+    <div class="mgrid">
+      <div class="mi"><div><div class="mi-name">Lemon Tea</div></div><div class="mi-price"><small>₹</small>10</div></div>
+      <div class="mi"><div><div class="mi-name">Ginger Tea</div></div><div class="mi-price"><small>₹</small>10</div></div>
+      <div class="mi"><div><div class="mi-name">Cinnamon Tea</div></div><div class="mi-price"><small>₹</small>10</div></div>
+      <div class="mi"><div><div class="mi-name">Elachi Tea</div></div><div class="mi-price"><small>₹</small>10</div></div>
+      <div class="mi"><div><div class="mi-name">Jaggery Tea</div></div><div class="mi-price"><small>₹</small>10</div></div>
+    </div>
+  </div>
+
+  <div class="special-bar reveal">
+    <div>
+      <p>"Only Refined Oil used — always fresh, always clean!"</p>
+      <span>Parcel charges applicable · Ask staff for combo deals</span>
+    </div>
+    <a href="tel:+919980490369" class="btn-red">Call to Order</a>
+  </div>
+</section>
+
+<!-- SOFTIE & FRESH SODA -->
+<section id="addons">
+  <div class="sec-hd reveal">
+    <span class="sec-tag">✨ Also Available Here</span>
+    <h2 class="sec-title">Sweet <em>Extras</em></h2>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--muted);font-size:1.1rem;margin-top:.8rem;letter-spacing:.06em;">Alongside our full menu — two more reasons to visit</p>
+    <div class="sec-rule">
+      <div class="sec-rule-line l"></div><div class="sec-rule-diamond"></div><div class="sec-rule-line r"></div>
+    </div>
+  </div>
+
+  <div class="addon-grid reveal">
+    <!-- SOFTIE -->
+    <div class="addon-card">
+      <div class="addon-card-top"></div>
+      <div class="addon-body">
+        <span class="addon-icon">🍦</span>
+        <div class="addon-title">Softie</div>
+        <div class="addon-sub">Creamy soft-serve ice cream · 5+ flavours</div>
+        <div class="pill-wrap">
+          <span class="pill">🍦 Vanilla</span>
+          <span class="pill">🍫 Chocolate</span>
+          <span class="pill">🍓 Strawberry</span>
+          <span class="pill">🥭 Mango</span>
+          <span class="pill">🍬 Butterscotch</span>
+          <span class="pill more">+ More</span>
+        </div>
+        <p class="addon-desc">Silky smooth soft-serve swirled fresh to order in <strong>5+ rotating flavours</strong>. Perfect as a post-meal treat. Ask our staff for today's special flavour!</p>
+        <div class="addon-avail"><div class="addon-avail-dot"></div> Available daily at the counter</div>
+      </div>
+    </div>
+    <!-- FRESH SODA -->
+    <div class="addon-card">
+      <div class="addon-card-top"></div>
+      <div class="addon-body">
+        <span class="addon-icon">🥤</span>
+        <div class="addon-title">Fresh Soda</div>
+        <div class="addon-sub">Fizzy · Refreshing · Made to order</div>
+        <div class="pill-wrap">
+          <span class="pill">🍋 Lemon</span>
+          <span class="pill">🌹 Rose</span>
+          <span class="pill">🍊 Orange</span>
+          <span class="pill">🫐 Blueberry</span>
+          <span class="pill">🍃 Mint</span>
+          <span class="pill more">+ More</span>
+        </div>
+        <p class="addon-desc">Freshly made chilled sodas in real fruit flavours. Sweet, salted, or <strong>custom blended</strong> — just the way you like it!</p>
+        <div class="addon-avail"><div class="addon-avail-dot"></div> Sweet · Salted · Custom blends</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="addon-note reveal">
+    <span style="font-size:1.5rem">🪔</span>
+    <p>Softie &amp; Fresh Soda are available alongside our full food menu — only at <span>Jai Hanuman Snacks Point</span>, Thindlu APC Layout.</p>
+    <a href="tel:+919980490369" class="btn-ice" style="white-space:nowrap">Call to Order</a>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="instagram">
+  <div class="sec-hd reveal">
+    <span class="sec-tag">Follow Our Journey</span>
+    <h2 class="sec-title">We're on <em>Instagram</em></h2>
+    <div class="sec-rule">
+      <div class="sec-rule-line l"></div><div class="sec-rule-diamond"></div><div class="sec-rule-line r"></div>
+    </div>
+  </div>
+  <div class="insta-grid reveal">
+    <div class="insta-cell">🍕</div>
+    <div class="insta-cell">🌯</div>
+    <div class="insta-cell">🍔</div>
+    <div class="insta-cell">🥤</div>
+    <div class="insta-cell">🍦</div>
+    <div class="insta-cell">🍝</div>
+  </div>
+  <span class="insta-handle">@jaihanumanstore</span>
+  <p class="insta-sub">Tag us in your photos · Use #JHSnacksPoint</p>
+  <br><br>
+  <a href="https://www.instagram.com/jaihanumanstore" target="_blank" class="btn-red" style="display:inline-block">Follow on Instagram</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-hd reveal">
+    <span class="sec-tag">Reach Us</span>
+    <h2 class="sec-title">Find <em>Us</em></h2>
+    <div class="sec-rule">
+      <div class="sec-rule-line l"></div><div class="sec-rule-diamond"></div><div class="sec-rule-line r"></div>
+    </div>
+  </div>
+
+  <div class="contact-grid reveal">
+    <a href="tel:+919980490369" class="contact-card">
+      <span class="c-icon">📞</span>
+      <span class="c-label">Call Us</span>
+      <div class="c-val">9980490369<br><span style="font-size:.85rem;opacity:.7">/ 9900523539</span></div>
+    </a>
+    <a href="mailto:jaihanumanstore1983@gmail.com" class="contact-card">
+      <span class="c-icon">✉️</span>
+      <span class="c-label">Email Us</span>
+      <div class="c-val" style="font-size:.92rem">jaihanumanstore1983<br>@gmail.com</div>
+    </a>
+    <div class="contact-card">
+      <span class="c-icon">📍</span>
+      <span class="c-label">Location</span>
+      <div class="c-val">Thindlu, APC Layout<br>Bangalore, Karnataka</div>
+    </div>
+  </div>
+
+  <div class="map-box reveal">
+    <div class="map-inner">
+      <span style="font-size:2.5rem">📍</span>
+      <div class="map-addr">Thindlu, <span>APC Layout</span>, Bangalore</div>
+      <a href="https://maps.google.com/?q=Thindlu+APC+Layout+Bangalore" target="_blank" class="btn-ice" style="margin-top:.8rem">Open in Google Maps</a>
+      <p class="map-note">Near local bus stop · Ample street parking available</p>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:2.5rem">
+    <div style="max-width:600px;margin:0 auto">
+      <span class="sec-tag" style="display:block;margin-bottom:1rem">Opening Hours</span>
+      <div class="hours-box reveal">
+        <div class="h-row"><span class="h-day">Monday – Tuesday</span><span class="h-time">7:00 AM – 9:00 PM</span></div>
+        <div class="h-row today"><span class="h-day">Wednesday ✦ Today</span><span class="h-time">7:00 AM – 9:00 PM</span></div>
+        <div class="h-row"><span class="h-day">Thursday – Friday</span><span class="h-time">7:00 AM – 9:00 PM</span></div>
+        <div class="h-row"><span class="h-day">Saturday</span><span class="h-time">6:30 AM – 10:00 PM</span></div>
+        <div class="h-row"><span class="h-day">Sunday</span><span class="h-time">7:00 AM – 8:00 PM</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo">JAI HANUMAN SNACKS POINT</div>
+  <div class="ft-tag">Where every bite is a blessing · Thindlu APC Layout, Bangalore</div>
+  <div class="ft-rule"></div>
+  <div class="ft-links">
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#addons">Specials</a>
+    <a href="#instagram">Instagram</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="ft-copy">© 2026 Jai Hanuman Snacks Point · All rights reserved · Only Refined Oil Used</div>
+</footer>
+
+<script>
+  function showCat(id, btn) {
+    document.querySelectorAll('.menu-cat').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('cat-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.padding = window.scrollY > 60 ? '.7rem 3rem' : '1rem 3rem';
+  });
+</script>
+</body>
+</html>
